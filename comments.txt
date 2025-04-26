@@ -1,0 +1,48 @@
+First Create a folder.( Working Directory)
+Initiate git using the command : git init -b main ( by changing the bt=ranch name to main )
+Configure the user to that folder :
+git config user.name "alias name " ( This name will be shown in the git log file)
+git config user.email "emailaddress"
+
+To push to a repository : 
+Create a remote repoisitory.
+
+try git remote -v ( this will show the list of remote repositories that are configured succesfully)
+try ssh -T git@github-alias-name to check if the authentication is successful.
+If( authentication is succesful ){
+    Hi Username! You've successfully authenticated, but GitHub does not provide shell access.
+}
+else {
+    error
+}
+
+if error :
+Add the remote Repository 
+git remote add origin git@github-alias-name:username/repo.git
+
+try :ssh -T git@github-alias-name to check if the authentication is successful.
+
+if still shows error 
+git remote set-url origin git@github-alias-name:username/repo.git
+try : ssh -T git@github-alias-name to check if the authentication is successful. 
+
+
+Now we can see that the remote is accessible.
+
+
+
+Note :
+
+Make sure the SSL config file is having the config like 
+Host github-account1
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_rsa1
+
+
+Host github-account2
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_rsa2
+
+The SSH Key is added by copying the text from .pub file into the SSH Keys section under the settings.
